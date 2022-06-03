@@ -1,0 +1,25 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+    <h1>Alta de Paciente</h1>
+    <form action="alta_paciente" method="POST">
+        {% csrf_token %}
+        <p>Nombre:</p>
+        <input type="text" name="nombre" required>
+        <p>Apellido:</p>
+        <input type="text" name="apellido" required>
+        <p>Email:</p>
+        <input type="text" name="email" required>
+        <p>Edad:</p>
+        <input type="number" name="edad" required>
+   
+
+        <input type="submit" value="Enviar">
+
+
+    </form>
+
+
+{% endblock %}

@@ -12,6 +12,7 @@ urlpatterns = [
     path("alta_medicos" , views.medicos_formulario),
     path("alta_enfermeras" , views.enfermeras_formulario),
     path("alta_paciente" , views.paciente_formulario),
-    
+    path("buscar_especialidades" , views.buscar_especialidades),
+    path("buscar" , views.buscar)
 
 ]

@@ -4,10 +4,31 @@
 
 {% block contenido %}
 
-    <p>Paciente 1</p>
-    <p>Paciente 2</p>
-    <p>Paciente 3</p>
-    <p>Paciente 4</p>
+</form>
 
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th> 
+        <th scope="col">Emaail</th>
+        <th scope="col">Edad</th>          
+    </tr>
+</thead>
+<tbody>
+    {% for n in paciente %}
+    <tr>
+        <th scope="row">{{n.id}}</th>
+        <td>{{n.nombre}}</td>
+        <td>{{n.apellido}}</td>
+        <td>{{n.email}}</td>
+        <td>{{n.edad}}</td>
+    
+    </tr>
+    {% endfor %}        
+
+    </tbody>
+</table>
 
 {% endblock %}

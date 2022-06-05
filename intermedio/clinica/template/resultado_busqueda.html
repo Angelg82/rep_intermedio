@@ -1,0 +1,26 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<body>
+    
+
+
+    {% if especialidades %}
+
+    <ul>
+    {% for especialidades in especialidades %}
+        <li>Nombre: {{especialidades.nombre}}</li>
+        <li>Legajo: {{especialidades.codigo}}</li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No se encontraron especialidades</p>
+    {% endif %}
+
+</body>
+</html>
+
+{% endblock %}

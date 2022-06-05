@@ -4,10 +4,31 @@
 
 {% block contenido %}
 
-    <p>Medico 1</p>
-    <p>Medico 2</p>
-    <p>Medico 3</p>
-    <p>Medico 4</p>
+</form>
 
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th> 
+        <th scope="col">Especialidad</th>
+        <th scope="col">Legajo</th>          
+    </tr>
+</thead>
+<tbody>
+    {% for n in medicos %}
+    <tr>
+        <th scope="row">{{n.id}}</th>
+        <td>{{n.nombre}}</td>
+        <td>{{n.apellido}}</td>
+        <td>{{n.especialidad}}</td>
+        <td>{{n.legajo}}</td>
+    
+    </tr>
+    {% endfor %}        
+
+    </tbody>
+</table>
 
 {% endblock %}

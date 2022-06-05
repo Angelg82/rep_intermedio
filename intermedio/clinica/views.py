@@ -13,21 +13,45 @@ def inicio(request):
 
 
 def especialidades(request):
+    especialidades = Especialidades.objects.all()
+    dicc = {"especialidades" : especialidades}
+    plantilla = loader.get_template("especialidades.html")
+    documento = plantilla.render(dicc)
+    return HttpResponse( documento )
 
     
     return render(request , "especialidades.html")
 
 def medicos(request):
+    medicos = Medicos.objects.all()
+    dicc = {"medicos" : medicos}
+    plantilla = loader.get_template("medicos.html")
+    documento = plantilla.render(dicc)
+    return HttpResponse( documento )
+
     
     return render(request , "medicos.html")
 
 def enfermeras(request):
+    enfermeras = Enfermeras.objects.all()
+    dicc = {"enfermeras" : enfermeras}
+    plantilla = loader.get_template("enfermeras.html")
+    documento = plantilla.render(dicc)
+    return HttpResponse( documento )
     
     return render(request , "enfermeras.html")
 
 def paciente(request):
+    paciente = Paciente.objects.all()
+    dicc = {"paciente" : paciente}
+    plantilla = loader.get_template("paciente.html")
+    documento = plantilla.render(dicc)
+    return HttpResponse( documento )
     
     return render(request , "paciente.html")
+
+
+
 
 def especialidades_formulario(request):
 
@@ -40,8 +64,10 @@ def especialidades_formulario(request):
             
             especialidades = Especialidades( nombre=datos['nombre'] , codigo=datos['codigo'])
             especialidades.save()
-
-            return render( request, "alta_especialidades.html")
+            
+        return render( request, "alta_especialidades.html")
+    
+              
 
     return render( request, "alta_especialidades.html")
 
@@ -93,20 +119,19 @@ def paciente_formulario(request):
 
     return render( request, "alta_paciente.html")
 
-"""
-def buscar_curso(request):
 
-    return render( request , "buscar_curso.html")
-
-
-
+def buscar_especialidades(request):
+    
+    return render( request , "buscar_especialidades.html")
+    
 def buscar(request):
 
-    if request.GET['nombre']:
-        nombre = request.GET['nombre']      
-        cursos = Curso.objects.filter(nombre__icontains = nombre)
-        return render( request , "resultado_busqueda.html" , {"cursos": cursos})
+    if request.GET["nombre"]:
+        nombre = request.GET['nombre']
+        especialidades = Especialidades.objects.filter(nombre__icontains = nombre)
+        return render( request , "resultado_busqueda.html" , {"especialidades": especialidades})
     else:
         return HttpResponse("Campo vacio")
+    
+   
 
-"""
